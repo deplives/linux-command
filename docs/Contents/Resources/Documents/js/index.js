@@ -27,7 +27,7 @@
             var s = e.n, r = e.d, i = new RegExp("(" + t + ")", "ig");
             t && (s = e.n.replace(i, '<i class="kw">$1</i>'), r = e.d.replace(i, '<i class="kw">$1</i>') || "");
             var i = this.root_path.replace(/\/$/, ""), l = n ? '<a href="' + i + '/c$url$.html"><strong>$name$</strong> - $des$</a><p></p>' : '<a href="' + i + '/c$url$.html"><strong>$name$</strong> - $des$</a>';
-            return this.simple(l, {name: s, url: e.p, des: r})
+            return this.simple(l, { name: s, url: e.p, des: r })
         }, searchResult: function (e) {
             var t = this.commands, n = this, s = 0, r = t.length, i = [], l = [], u = e ? this.page_size : this.query_size, a = [], o = [];
             if (t && t.length && -1 < toString.call(t).indexOf("Array")) for (; s < r && t[s]; s++) {
